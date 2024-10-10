@@ -4,25 +4,23 @@ struct monomio{
 	int exp;
 	int coef;
 };
-int secuencialDes(int n, monomio t[], monomio mon){
+int secuencialDes(int n, monomio t[], monomio m){
 	int pos=0;
 	int i=0;
-	while(i<=n&&(t[i].coef!=coef)&&(t[i].exp!=exp)){
+	while(i < n && !(t[i].coef != m.coef && t[i].exp != m.exp)){
 		i=i+1;
 	} 
-	if(i<=n){
+	if(i<n){
 		pos=i;
 		return pos;
 	}else{
-		return pos;
+		return -1;
 	} 
 }
 int main(){
 	int n;
-	int coef;
-	int exp;
 	int pos;
-	monomio monomio;
+	monomio mon;
 	cout<<"Escriba la cantidad de terminos: ";
 	cin>>n;
 	monomio ter[n];
@@ -33,9 +31,16 @@ int main(){
 		cin>>ter[i].exp;
 	}
 	cout<<"Escriba el monomio a buscar:"<<endl;
-	cin>>monomio.exp;
-	cin
-	pos = secuencialDes(n, ter, coef, exp );
-	cout<<"El monomio esta en la posicion: "<<pos;
+	cout<<"Coeficiente: ";
+	cin>>mon.coef;
+	cout<<"Exponente: ";
+	cin>>mon.exp;
+	pos = secuencialDes(n, ter, mon);
+	if(pos!=-1){
+		cout<<"El monomio esta en la posicion: "<<pos;	
+	}else{
+		cout<<"El monomio no se encuentra en el polinomio";
+	}
+	
 	return 0;
 	}
